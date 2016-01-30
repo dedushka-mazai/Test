@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MassiveTest.Wcf.Services.DomainSpecificService" Factory="MassiveTest.Wcf.Services.WcfServiceFactory" %>

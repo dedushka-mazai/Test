@@ -38,7 +38,7 @@ namespace MassiveTest.DataAccess.MySql
         }
 
         /// <summary>
-        /// Executes an SQL query, which returns a single value
+        /// Executes SQL query, which returns a single value
         /// </summary>
         /// <param name="sql">SQL query text</param>
         /// <returns>Value</returns>
