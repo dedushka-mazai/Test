@@ -17,9 +17,12 @@ namespace MassiveTest.Wcf.Services {
             //container.LoadConfiguration();
             container.RegisterType<IGraph, MassiveTest.Graphs.Graph>();
             container.RegisterType<IDataProvider, DbDataProvider >();
-            container.RegisterType<IDomainSpecificService, DomainSpecificService>();
             container.RegisterType<IDbConnectionParams, MassiveTest.Wcf.Services.Settings.DbConnectionParams>();
             container.RegisterType<IDbEngine, MassiveTest.DataAccess.MySql.MySqlEngine>();
+
+            container.RegisterType<IDomainSpecificService, DomainSpecificService>();
+            container.RegisterType<IDataManagementService, DataManagementService>();
+
             //UnityConfig.RegisterTypes(container);
         }
     }

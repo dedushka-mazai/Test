@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="MassiveTest.Wcf.Services.ManagementDataService" Factory="MassiveTest.Wcf.Services.WcfServiceFactory" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MassiveTest.Wcf.Services.DataManagementService" Factory="MassiveTest.Wcf.Services.WcfServiceFactory" %>

@@ -25,15 +25,6 @@ namespace MassiveTest.Wcf.Services.Settings {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
-        public string DbHost {
-            get {
-                return ((string)(this["DbHost"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("root")]
         public string DbUser {
             get {
@@ -47,6 +38,15 @@ namespace MassiveTest.Wcf.Services.Settings {
         public string DbPass {
             get {
                 return ((string)(this["DbPass"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
+        public string DbHost {
+            get {
+                return ((string)(this["DbHost"]));
             }
         }
         

@@ -1,15 +1,15 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WcfServiceHost" GeneratedClassName="DbSettings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MassiveTest.Wcf.Services.Settings" GeneratedClassName="DbSettings">
   <Profiles />
   <Settings>
-    <Setting Name="DbHost" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">localhost</Value>
-    </Setting>
     <Setting Name="DbUser" Type="System.String" Scope="Application">
       <Value Profile="(Default)">root</Value>
     </Setting>
     <Setting Name="DbPass" Type="System.String" Scope="Application">
       <Value Profile="(Default)">12345</Value>
+    </Setting>
+    <Setting Name="DbHost" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost</Value>
     </Setting>
     <Setting Name="DbName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">graphs</Value>
