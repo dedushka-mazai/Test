@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <actions>
+
+    <action>
+      <install>
+        <file>indexes.sql</file>
+        <message>Creating indexes</message>
+      </install>
+      <uninstall>
+        <file>u_indexes.sql</file>
+        <message>Dropping indexes</message>
+      </uninstall>
+    </action>
+
+  </actions>
+</root>

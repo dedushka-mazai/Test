@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <actions>
+
+    <action>
+      <install>
+        <file>tables.sql</file>
+        <message>Creating tables</message>
+      </install>
+      <uninstall>
+        <file>u_tables.sql</file>
+        <message>Dropping tables</message>
+      </uninstall>
+    </action>
+
+  </actions>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <actions>
+
+    <action>
+      <install>
+        <file>sp_graphs.sql</file>
+        <message>Creating functions and procedures for GRAPHS database </message>
+      </install>
+      <uninstall>
+        <file>u_sp_graphs.sql</file>
+        <message>Dropping functions and procedures for GRAPHS </message>
+      </uninstall>
+    </action>
+
+  </actions>
+</root>

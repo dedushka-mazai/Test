@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <actions>
+
+    <action>
+      <install>
+        <file>ref_constraints.sql</file>
+        <message>Creating foreign keys</message>
+      </install>
+      <uninstall>
+        <file>u_ref_constraints.sql</file>
+        <message>Dropping foreign keys</message>
+      </uninstall>
+    </action>
+
+  </actions>
+</root>

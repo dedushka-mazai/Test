@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database>
+  <setup class="MassiveTest_Graphs" title="MassiveTest_Graphs" description="Graphs Database"/>
+  <version>1.0.0.0</version>
+
+  <actions>
+
+    <action isRef="true">
+      <install>
+        <file>SQL\metadata\TABLE\_install.xml</file>
+      </install>
+    </action>
+
+    <action isRef="true">
+      <install>
+        <file>SQL\metadata\INDEX\_install.xml</file>
+      </install>
+    </action>
+
+    <action isRef="true">
+      <install>
+        <file>SQL\metadata\REF_CONSTRAINT\_install.xml</file>
+      </install>
+    </action>
+
+    <action isRef="true">
+      <install>
+        <file>SQL\metadata\PROCS\_install.xml</file>
+      </install>
+    </action>
+
+  </actions>
+</database>
