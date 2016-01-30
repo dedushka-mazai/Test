@@ -11,31 +11,51 @@ namespace MassiveTest.DataLoader
 {
     class Program
     {
+        // folder, where nodes' files are located
         static string nodesFolder = null;
 
+        /// <summary>
+        /// Application entry point
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Logger.WriteLine("MassiveTest Data Loader 1.0, Copyright (c) Sergey Stoyan, 2016\n", true);
             try
             {
+                // if no arguments specified, show help and quit
                 if (args.Length == 0)
                 {
                     ShowHelp();
-                    Terminate(Consts.RC_OK);
+                    Terminate(OperationResult.Ok);
                 }
 
+                // arguments parsing
                 ParseArgs(args);
 
+                // create loader instance
                 var loader = new NodesLoader(nodesFolder);
-                Terminate(loader.Execute());
+
+                // execute loader procedure 
+                loader.Execute();
+
+                // quit with result code = 0
+                Terminate(OperationResult.Ok);
+            }
+            catch (DataLoaderException e)
+            {
+                Terminate(e.ResultCode);
             }
             catch (Exception e)
             {
                 Logger.WriteException("Unexpected error. ", e);
-                Terminate(Consts.RC_UNEXPECTED_ERROR);
+                Terminate(OperationResult.UnexpectedError);
             }
         }
 
+        /// <summary>
+        /// Displays help information
+        /// </summary>
         static void ShowHelp()
         {
             Logger.WriteLine("Usage:  MassiveTest.DataLoader [folder] ", true);
@@ -56,7 +76,7 @@ namespace MassiveTest.DataLoader
             // exit if nodes folder is not valid
             if (!Directory.Exists(nodesFolder))
             {
-                Terminate(Consts.RC_INVALID_NODES_FOLDER);
+                Terminate(OperationResult.InvalidNodesFolder);
             }
         }
 
@@ -64,15 +84,15 @@ namespace MassiveTest.DataLoader
         /// Terminates application returning specified result code
         /// </summary>
         /// <param name="resultCode">Result code</param>
-        static void Terminate(int resultCode)
+        static void Terminate(OperationResult resultCode)
         {
             // write message to console if error occured
-            if (resultCode != Consts.RC_OK)
+            if (resultCode != OperationResult.Ok)
             {
-                Logger.WriteLineError(Consts.ErrorMessages[resultCode], true);
+                Logger.WriteLineError(Consts.ErrorMessages[(byte)resultCode], true);
             }
             // quit application
-            Environment.Exit(resultCode);
+            Environment.Exit((byte)resultCode);
         }
     }
 }

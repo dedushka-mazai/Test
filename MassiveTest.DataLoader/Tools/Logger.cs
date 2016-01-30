@@ -25,6 +25,7 @@ namespace MassiveTest.DataLoader
         // flag for control console output
         public static bool AllowWriteToConsole = true;
 
+        // private version of writeLine
         private static void writeLine(string msg, string category, bool logToConsole = false, bool logToFile = true, bool noTimeStampForEntry = false, ConsoleColor conColor = ConsoleColor.Gray)
         {
             write(msg, category, true, logToConsole, logToFile, noTimeStampForEntry, conColor);
@@ -59,6 +60,8 @@ namespace MassiveTest.DataLoader
                 }
             }
         }
+
+        #region Many different public versions of logging methods
 
         public static void WriteLine(string msg, bool logToConsole = false, bool logToFile = true, bool noTimeStampForEntry = false, ConsoleColor conColor = ConsoleColor.Gray)
         {
@@ -95,7 +98,6 @@ namespace MassiveTest.DataLoader
             writeLine(msg + " Exception: " + e.Message + "\n" + e.StackTrace, "Error");
         }
 
-
         public static void WriteLineSuccessEx(string msg)
         {
             WriteSuccess("  Success. ", true);
@@ -107,5 +109,7 @@ namespace MassiveTest.DataLoader
             WriteError("  Failed. ", true);
             WriteLine(msg, true, true, true);
         }
+
+        #endregion
     }
 }

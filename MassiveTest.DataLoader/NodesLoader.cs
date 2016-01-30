@@ -8,22 +8,35 @@ using MassiveTest.DataLoader.Tools;
 
 namespace MassiveTest.DataLoader
 {
+    /// <summary>
+    /// Class, that allows load graph nodes from the disk and then upload its to the Graph Service
+    /// </summary>
     public class NodesLoader
     {
-        private string nodesFolder;
-        private List<GraphNode> nodes = new List<GraphNode>();
-        private MassiveTest.Wcf.Client.DataManagement.DataManagementServiceClient proxy = null;
-        private int lastResult = Consts.RC_OK;
+        #region Private members
 
+        // nodes folder name
+        private string nodesFolder;
+        // nodes list
+        private List<GraphNode> nodes = new List<GraphNode>();
+        // proxy to call Graph Service methods
+        private MassiveTest.Wcf.Client.DataManagement.DataManagementServiceClient proxy = null;
+
+        #endregion
+
+        #region Constructor
         /// <summary>
-        /// 
+        /// Initializes instance of the class, which loads graph nodes from the specified folder on the disk and uploads its to the Graph Service
         /// </summary>
-        /// <param name="nodesFolder"></param>
+        /// <param name="nodesFolder">Folder name, where graph nodes are located</param>
         public NodesLoader(string nodesFolder)
         {
             this.nodesFolder = nodesFolder;
         }
+        #endregion
 
+        #region Private methods
+        // loads nodes from the specified folder into the internal list
         private void LoadNodesFromFolder()
         {
             Logger.WriteLine("Loading files...", true);
@@ -45,6 +58,7 @@ namespace MassiveTest.DataLoader
             }
         }
 
+        // connects to the Graph Service
         private void ConnectToDataService()
         {
             Logger.Write("Connecting to Graph Service...", true, true);
@@ -58,15 +72,25 @@ namespace MassiveTest.DataLoader
             {
                 Logger.WriteLineError("Failed", true, true, true);
                 Logger.WriteException("Could not connect to Graph Service", e);
-                lastResult = Consts.RC_SERVICE_CONNECT_ERROR;
+                throw new DataLoaderException(OperationResult.ServiceConnectError);
             }
         }
 
+        // disconnects from the Graph Service
         private void DisconnectFromDataService()
         {
-            proxy.Close();
+            try
+            {
+                proxy.Close();
+            }
+            catch (Exception e)
+            {
+                Logger.WriteException("Error while disconnecting from Graph Service", e);
+                throw new DataLoaderException(OperationResult.ServiceDisconnectError);
+            }
         }
             
+        // uploads nodes to the Graph Service
         private void UploadNodes()
         {
             Logger.WriteLine("Uploading nodes to Graph Service...", true);
@@ -92,31 +116,49 @@ namespace MassiveTest.DataLoader
             Logger.WriteLine(String.Format("Upload completed ({0} errors)", errCount), true, true, false, ConsoleColor.White);
         }
 
+        // clears nodes at the Graph Service
         private void ClearNodes()
         {
-            proxy.Clear();
+            try
+            {
+                proxy.Clear();
+            }
+            catch (Exception e)
+            {
+                Logger.WriteException("Error while clearing nodes", e);
+                throw new DataLoaderException(OperationResult.ServiceClearNodesError);
+            }
         }
+        #endregion
 
-        public int Execute()
+        #region Main execution procedure
+        /// <summary>
+        /// Loads nodes from the specified folder and uploads them to the Graph Service
+        /// </summary>
+        public void Execute()
         {
+            // load nodes from disk into the list
             LoadNodesFromFolder();
+
+            // if nodes list is empty then stop processing and quit with rc = 0
             if (nodes.Count == 0)
             {
                 Logger.WriteLine("No graph nodes found.", true, true, false, ConsoleColor.White);
-                return Consts.RC_OK;
+                return; 
             }
 
+            // connect to WCF graph data-management service
             ConnectToDataService();
-            if (lastResult != Consts.RC_OK)
-                return lastResult;
 
+            // delete all existing nodes at the service
             ClearNodes();
 
+            // upload previously loaded from disk nodes to the service
             UploadNodes();
 
+            // disconnect from the service
             DisconnectFromDataService();
-
-            return Consts.RC_OK;
         }
+        #endregion
     }
 }

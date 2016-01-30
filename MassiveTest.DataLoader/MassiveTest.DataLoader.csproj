@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consts.cs" />
+    <Compile Include="Tools\Common.cs" />
     <Compile Include="GraphNode.cs" />
     <Compile Include="Tools\Logger.cs" />
     <Compile Include="NodesLoader.cs" />
