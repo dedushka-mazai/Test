@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveTest.Tests", "Massiv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveTest.DataProvider", "MassiveTest.DataProvider\MassiveTest.DataProvider.csproj", "{39D095C4-F4CC-44E7-8B2D-4910233FCB25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveTest.DbEngine.MySql", "MassiveTest.DbEngine.MySql\MassiveTest.DbEngine.MySql.csproj", "{828B7AAE-10B9-40CD-98A0-43FC61080D69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{39D095C4-F4CC-44E7-8B2D-4910233FCB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39D095C4-F4CC-44E7-8B2D-4910233FCB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39D095C4-F4CC-44E7-8B2D-4910233FCB25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{828B7AAE-10B9-40CD-98A0-43FC61080D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{828B7AAE-10B9-40CD-98A0-43FC61080D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{828B7AAE-10B9-40CD-98A0-43FC61080D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{828B7AAE-10B9-40CD-98A0-43FC61080D69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
