@@ -11,21 +11,14 @@ namespace MassiveTest.DataLoader
         internal const int RC_OK = 0;
         internal const int RC_UNEXPECTED_ERROR = 1;
         internal const int RC_INVALID_NODES_FOLDER = 2;
+        internal const int RC_SERVICE_CONNECT_ERROR = 3;
 
-        internal static string[] ErrorMessages = new string[3]
+        internal static string[] ErrorMessages = new string[4]
         {
-            "Success",                                         // 0
-            "Unexpected error.",                               // 2
-            "Specified nodes folder is not valid"/*,           // 3
-            "MySQL user name is not specified.",               // 4
-            "MySQL server is not specified.",                  // 5
-            "MySQL user password is not specified.",           // 6
-            "MySQL database is not specified.",                // 7
-            "Could not connect to MySQL server.",              // 8
-            "Database error.",                                 // 9
-            "Present database is not valid.",                  // 10
-            "Newer version of database is already installed.", // 11
-            "Database does not exist."                         // 12*/
+            "",                                         
+            "Unexpected error.",                        
+            "Specified nodes folder is not valid",      
+            "Could not connect to the Graph Service."
         };
 
     }

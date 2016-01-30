@@ -43,9 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="GraphNode.cs" />
+    <Compile Include="Tools\Logger.cs" />
+    <Compile Include="NodesLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\XmlStorageProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -25,11 +25,9 @@ namespace MassiveTest.DataLoader
                 }
 
                 ParseArgs(args);
-               
-                var proxy = new MassiveTest.Wcf.Client.DataManagement.DataManagementServiceClient();
-                Console.WriteLine(proxy.Clear().ToString());
-                proxy.Close();
-                Console.ReadLine();
+
+                var loader = new NodesLoader(nodesFolder);
+                Terminate(loader.Execute());
             }
             catch (Exception e)
             {
