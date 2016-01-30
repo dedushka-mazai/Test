@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveTest.Graphs", "Massi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveTest.Tests", "MassiveTest.Tests\MassiveTest.Tests.csproj", "{961B0862-02B9-4947-A41B-768BFA28DF1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveTest.DataProvider", "MassiveTest.DataProvider\MassiveTest.DataProvider.csproj", "{39D095C4-F4CC-44E7-8B2D-4910233FCB25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{961B0862-02B9-4947-A41B-768BFA28DF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{961B0862-02B9-4947-A41B-768BFA28DF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{961B0862-02B9-4947-A41B-768BFA28DF1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D095C4-F4CC-44E7-8B2D-4910233FCB25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D095C4-F4CC-44E7-8B2D-4910233FCB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D095C4-F4CC-44E7-8B2D-4910233FCB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D095C4-F4CC-44E7-8B2D-4910233FCB25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

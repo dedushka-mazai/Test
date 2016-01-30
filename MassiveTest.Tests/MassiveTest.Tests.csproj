@@ -70,6 +70,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MassiveTest.DataProvider\MassiveTest.DataProvider.csproj">
+      <Project>{39d095c4-f4cc-44e7-8b2d-4910233fcb25}</Project>
+      <Name>MassiveTest.DataProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MassiveTest.Graphs\MassiveTest.Graphs.csproj">
       <Project>{df3f3c0e-b41a-4460-9547-0efc901a5b5b}</Project>
       <Name>MassiveTest.Graphs</Name>
