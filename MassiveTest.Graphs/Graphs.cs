@@ -12,14 +12,11 @@ namespace MassiveTest.Graphs
     /// </summary>
     public class Graph : IGraph
     {
+        #region Private
+        
         private Dictionary<string, Node> nodes = new Dictionary<string, Node>();
 
-        /// <summary>
-        /// Performs backtrace from the end node to the start one.
-        /// </summary>
-        /// <param name="startNode">Start node</param>
-        /// <param name="endNode">End Node</param>
-        /// <returns>Ordered array of node IDs</returns>
+        // Performs backtrace from the end node to the start one
         private string[] Backtrace(Node startNode, Node endNode)
         {
             var path = new string[endNode.waveMark + 1];
@@ -46,6 +43,30 @@ namespace MassiveTest.Graphs
             return path;
         }
 
+        // Checks string argument for null-value or empty-value 
+        private void CheckArgumentStringForNullOrEmpty(string value, string argumentName)
+        {
+            if (String.IsNullOrEmpty(value))
+                throw new ArgumentNullException(argumentName, "Value can not be null or empty");
+        }
+
+        // Checks if specified node id belongs to the graph
+        private void CheckArgumentNodeBelongsToGraph(string nodeId, string argumentName)
+        {
+            if (!nodes.ContainsKey(nodeId))
+                throw new ArgumentException(String.Format("Node (id = '{0}') does not belong to the graph", nodeId), argumentName);
+        }
+
+        // resets wavemarks for all the nodes in the graph
+        private void ResetAllNodesWaveMarks()
+        {
+            foreach (var node in nodes.Values)
+                node.waveMark = -1;
+        }
+
+        #endregion
+
+        #region IGraph members
         /// <summary>
         /// Adds node to the graph.
         /// </summary>
@@ -55,10 +76,8 @@ namespace MassiveTest.Graphs
         public void AddNode(string id, string label, string[] adjacentIds)
         {
             // check arguments
-            if (String.IsNullOrEmpty(id))
-                throw new ArgumentNullException("id", "Value can not be null or empty");
-            if (String.IsNullOrEmpty(label))
-                throw new ArgumentNullException("label", "Value can not be null or empty");
+            CheckArgumentStringForNullOrEmpty(id, "id");
+            CheckArgumentStringForNullOrEmpty(label, "label");
 
             // create node and add it to the graph's node list
             Node node = new Node() { Id = id, Label = label };
@@ -112,18 +131,14 @@ namespace MassiveTest.Graphs
         public string[] FindShortestPath(string startId, string endId)
         {
             // check arguments
-            if (String.IsNullOrEmpty(startId))
-                throw new ArgumentNullException("startId", "Value can not be null or empty");
-            if (String.IsNullOrEmpty(endId))
-                throw new ArgumentNullException("endId", "Value can not be null or empty");
-            if (!nodes.ContainsKey(startId))
-                throw new ArgumentException(String.Format("Node (id = '{0}') does not belong to the graph", startId), "startId");
-            if (!nodes.ContainsKey(endId))
-                throw new ArgumentException(String.Format("Node (id = '{0}') does not belong to the graph", endId), "endId");
+            CheckArgumentStringForNullOrEmpty(startId, "startId");
+            CheckArgumentStringForNullOrEmpty(endId, "endId");
+
+            CheckArgumentNodeBelongsToGraph(startId, "startId");
+            CheckArgumentNodeBelongsToGraph(endId, "endId");
 
             // reset wave marks for all nodes
-            foreach (var node in nodes.Values)
-                node.waveMark = -1;
+            ResetAllNodesWaveMarks();
 
             // init start data
             int i = -1;
@@ -165,6 +180,7 @@ namespace MassiveTest.Graphs
             // return backtrace if path found or empty path otherwise
             return found ? Backtrace(nodes[startId], nodes[endId]) : new string[0];
         }
+        #endregion
     }
 
     /// <summary>
