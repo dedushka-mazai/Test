@@ -12,9 +12,22 @@ namespace MassiveTest.Interface
     public interface IDataProvider
     {
         /// <summary>
-        /// Fills graph with set of nodes
+        /// Fills specified graph with set of nodes
         /// </summary>
         /// <param name="graph">Graph instance to create nodes in</param>
         void BuildGraph(IGraph graph);
+
+        /// <summary>
+        /// Deletes all the nodes in data store
+        /// </summary>
+        void ClearNodes();
+
+        /// <summary>
+        /// Adds new node to the data store
+        /// </summary>
+        /// <param name="id">Node id</param>
+        /// <param name="label">Node label</param>
+        /// <param name="adjacentNodes">Adjacent node list</param>
+        void AddNode(string id, string label, string[] adjacentNodes);
     }
 }

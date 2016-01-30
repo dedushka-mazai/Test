@@ -21,6 +21,10 @@ namespace MassiveTest.DataProvider
             this.connectionParams = connectionParams;
         }
 
+        /// <summary>
+        /// Builds specified graph with set of nodes stored in the database
+        /// </summary>
+        /// <param name="graph">Graph to fill</param>
         public void BuildGraph(IGraph graph)
         {
             graph.Clear();
@@ -63,5 +67,48 @@ namespace MassiveTest.DataProvider
                 db.Disconnect();
             }
         }
+
+        /// <summary>
+        /// Deletes all the nodes in the database
+        /// </summary>
+        public void ClearNodes()
+        {
+            db.Connect(connectionParams);
+            try
+            {
+                db.ExecScript("CALL clear();");
+            }
+            finally
+            {
+                db.Disconnect();
+            }
+        }
+
+        /// <summary>
+        /// Adds new node to the database
+        /// </summary>
+        /// <param name="id">Node id</param>
+        /// <param name="label">Node label</param>
+        /// <param name="adjacentNodes">Adjacent node list</param>
+        public void AddNode(string id, string label, string[] adjacentNodes)
+        {
+            db.Connect(connectionParams);
+            try
+            {
+                string ids = "";
+                foreach (var nodeId in adjacentNodes)
+                {
+                    if (ids.Length > 0)
+                        ids += ",";
+                    ids += nodeId;
+                }
+                db.ExecScript(String.Format("CALL insert_node('{0}', '{1}', '{2}');", id, label, ids));
+            }
+            finally
+            {
+                db.Disconnect();
+            }
+        }
+
     }
 }

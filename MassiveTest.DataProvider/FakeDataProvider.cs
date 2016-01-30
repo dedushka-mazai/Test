@@ -12,9 +12,9 @@ namespace MassiveTest.DataProvider
     /// </summary>
     public class FakeDataProvider : IDataProvider
     {
-        public void BuildGraph(IGraph graph)
-        {
-            // do nothing
-        }
+        public void BuildGraph(IGraph graph) {}
+        public void ClearNodes() {}
+        public void AddNode(string id, string label, string[] adjacentNodes) { }
+
     }
 }

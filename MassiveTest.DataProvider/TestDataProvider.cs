@@ -27,5 +27,9 @@ namespace MassiveTest.DataProvider
             g.AddNode("9", "Amazon", new string[1] { "10" });
             g.AddNode("10", "Facebook", new string[1] { "9" });
         }
+
+        void ClearNodes() { }
+        void AddNode(string id, string label, string[] adjacentNodes) { }
+
     }
 }
