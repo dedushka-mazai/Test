@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="395815b6-9ee3-4aff-a393-17633d55afb5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fed4fe35-cd66-41b5-95ff-97a5a752e83f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost/Graphs/Data.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Data.xsd" MetadataType="Schema" ID="e85a1737-a333-4dbb-991b-8e9a33361091" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?xsd=xsd3" />
-    <MetadataFile FileName="Data1.xsd" MetadataType="Schema" ID="d04c562a-a0c1-4cf4-8235-47607e7fdace" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?xsd=xsd2" />
-    <MetadataFile FileName="Data2.xsd" MetadataType="Schema" ID="d913f202-c0fa-48af-9240-7719d700ce58" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?xsd=xsd1" />
-    <MetadataFile FileName="Data3.xsd" MetadataType="Schema" ID="a49ab95c-587b-40ed-a781-37c523509e07" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?xsd=xsd0" />
-    <MetadataFile FileName="DataManagementService.wsdl" MetadataType="Wsdl" ID="e0eb6d5e-14b2-4750-9a08-6865ae7eb1d5" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?wsdl" />
+    <MetadataFile FileName="Data.xsd" MetadataType="Schema" ID="831f3afc-a725-46d2-82c7-1a963ad73189" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?xsd=xsd3" />
+    <MetadataFile FileName="Data1.xsd" MetadataType="Schema" ID="97c75af6-adc3-4040-8318-9cec8c3c530e" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?xsd=xsd2" />
+    <MetadataFile FileName="Data2.xsd" MetadataType="Schema" ID="68923bfc-d4db-48da-bd01-4718e130bccc" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?xsd=xsd1" />
+    <MetadataFile FileName="Data3.xsd" MetadataType="Schema" ID="c179025a-a9f8-4dd8-8536-0f9ba618ffdb" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataManagementService.wsdl" MetadataType="Wsdl" ID="ad137e49-5456-48f7-ab0a-419f4c9ed553" SourceId="1" SourceUrl="http://localhost/Graphs/Data.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

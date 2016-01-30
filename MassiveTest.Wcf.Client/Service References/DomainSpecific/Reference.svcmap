@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="11afe8e8-6bb6-4aa1-971c-35395acda1ff" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="545fbf17-4cac-44a6-84fd-18392f7608e8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost/Graphs/Domain.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Domain.xsd" MetadataType="Schema" ID="60597e54-1754-4ef5-8066-e053163f7d04" SourceId="1" SourceUrl="http://localhost/Graphs/Domain.svc?xsd=xsd0" />
-    <MetadataFile FileName="DomainSpecificService.wsdl" MetadataType="Wsdl" ID="96cf1681-bf04-40b0-bf1f-2b17d34508c1" SourceId="1" SourceUrl="http://localhost/Graphs/Domain.svc?wsdl" />
-    <MetadataFile FileName="Domain1.xsd" MetadataType="Schema" ID="c5dc6f00-fa0f-4169-9682-40b887d3429c" SourceId="1" SourceUrl="http://localhost/Graphs/Domain.svc?xsd=xsd1" />
-    <MetadataFile FileName="Domain2.xsd" MetadataType="Schema" ID="fca2f983-5b63-4167-8db5-b977123e7cba" SourceId="1" SourceUrl="http://localhost/Graphs/Domain.svc?xsd=xsd2" />
+    <MetadataFile FileName="Domain.xsd" MetadataType="Schema" ID="a2620911-1819-4bee-a1e5-ae58915c7851" SourceId="1" SourceUrl="http://localhost/Graphs/Domain.svc?xsd=xsd0" />
+    <MetadataFile FileName="DomainSpecificService.wsdl" MetadataType="Wsdl" ID="a81a5551-6b80-4654-afa4-322360cb556b" SourceId="1" SourceUrl="http://localhost/Graphs/Domain.svc?wsdl" />
+    <MetadataFile FileName="Domain1.xsd" MetadataType="Schema" ID="24d1cfa1-7197-4ac5-af03-b6e585f6d907" SourceId="1" SourceUrl="http://localhost/Graphs/Domain.svc?xsd=xsd1" />
+    <MetadataFile FileName="Domain2.xsd" MetadataType="Schema" ID="2fde15f3-4bdd-4666-ac70-a971a0557d13" SourceId="1" SourceUrl="http://localhost/Graphs/Domain.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

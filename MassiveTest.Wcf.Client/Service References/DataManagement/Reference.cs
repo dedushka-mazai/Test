@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MassiveTest.Wcf.Client.MassiveTest.DataManagementService {
+namespace MassiveTest.Wcf.Client.DataManagement {
     using System.Runtime.Serialization;
     
     
@@ -24,29 +24,29 @@ namespace MassiveTest.Wcf.Client.MassiveTest.DataManagementService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MassiveTest.DataManagementService.IDataManagementService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DataManagement.IDataManagementService")]
     public interface IDataManagementService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataManagementService/AddNode", ReplyAction="http://tempuri.org/IDataManagementService/AddNodeResponse")]
-        MassiveTest.Wcf.Client.MassiveTest.DataManagementService.DataOperationResult AddNode(string id, string label, string[] adjacentIds);
+        MassiveTest.Wcf.Client.DataManagement.DataOperationResult AddNode(string id, string label, string[] adjacentIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataManagementService/AddNode", ReplyAction="http://tempuri.org/IDataManagementService/AddNodeResponse")]
-        System.Threading.Tasks.Task<MassiveTest.Wcf.Client.MassiveTest.DataManagementService.DataOperationResult> AddNodeAsync(string id, string label, string[] adjacentIds);
+        System.Threading.Tasks.Task<MassiveTest.Wcf.Client.DataManagement.DataOperationResult> AddNodeAsync(string id, string label, string[] adjacentIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataManagementService/Clear", ReplyAction="http://tempuri.org/IDataManagementService/ClearResponse")]
-        MassiveTest.Wcf.Client.MassiveTest.DataManagementService.DataOperationResult Clear();
+        MassiveTest.Wcf.Client.DataManagement.DataOperationResult Clear();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataManagementService/Clear", ReplyAction="http://tempuri.org/IDataManagementService/ClearResponse")]
-        System.Threading.Tasks.Task<MassiveTest.Wcf.Client.MassiveTest.DataManagementService.DataOperationResult> ClearAsync();
+        System.Threading.Tasks.Task<MassiveTest.Wcf.Client.DataManagement.DataOperationResult> ClearAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDataManagementServiceChannel : MassiveTest.Wcf.Client.MassiveTest.DataManagementService.IDataManagementService, System.ServiceModel.IClientChannel {
+    public interface IDataManagementServiceChannel : MassiveTest.Wcf.Client.DataManagement.IDataManagementService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DataManagementServiceClient : System.ServiceModel.ClientBase<MassiveTest.Wcf.Client.MassiveTest.DataManagementService.IDataManagementService>, MassiveTest.Wcf.Client.MassiveTest.DataManagementService.IDataManagementService {
+    public partial class DataManagementServiceClient : System.ServiceModel.ClientBase<MassiveTest.Wcf.Client.DataManagement.IDataManagementService>, MassiveTest.Wcf.Client.DataManagement.IDataManagementService {
         
         public DataManagementServiceClient() {
         }
@@ -67,19 +67,19 @@ namespace MassiveTest.Wcf.Client.MassiveTest.DataManagementService {
                 base(binding, remoteAddress) {
         }
         
-        public MassiveTest.Wcf.Client.MassiveTest.DataManagementService.DataOperationResult AddNode(string id, string label, string[] adjacentIds) {
+        public MassiveTest.Wcf.Client.DataManagement.DataOperationResult AddNode(string id, string label, string[] adjacentIds) {
             return base.Channel.AddNode(id, label, adjacentIds);
         }
         
-        public System.Threading.Tasks.Task<MassiveTest.Wcf.Client.MassiveTest.DataManagementService.DataOperationResult> AddNodeAsync(string id, string label, string[] adjacentIds) {
+        public System.Threading.Tasks.Task<MassiveTest.Wcf.Client.DataManagement.DataOperationResult> AddNodeAsync(string id, string label, string[] adjacentIds) {
             return base.Channel.AddNodeAsync(id, label, adjacentIds);
         }
         
-        public MassiveTest.Wcf.Client.MassiveTest.DataManagementService.DataOperationResult Clear() {
+        public MassiveTest.Wcf.Client.DataManagement.DataOperationResult Clear() {
             return base.Channel.Clear();
         }
         
-        public System.Threading.Tasks.Task<MassiveTest.Wcf.Client.MassiveTest.DataManagementService.DataOperationResult> ClearAsync() {
+        public System.Threading.Tasks.Task<MassiveTest.Wcf.Client.DataManagement.DataOperationResult> ClearAsync() {
             return base.Channel.ClearAsync();
         }
     }

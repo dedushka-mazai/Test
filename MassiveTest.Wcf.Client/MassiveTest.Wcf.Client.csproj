@@ -43,12 +43,12 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\MassiveTest.DataManagementService\Reference.cs">
+    <Compile Include="Service References\DataManagement\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\MassiveTest.DomainSpecificService\Reference.cs">
+    <Compile Include="Service References\DomainSpecific\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -59,57 +59,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\MassiveTest.DataManagementService\Data.xsd">
+    <None Include="Service References\DataManagement\Data.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MassiveTest.DataManagementService\Data1.xsd">
+    <None Include="Service References\DataManagement\Data1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MassiveTest.DataManagementService\Data2.xsd">
+    <None Include="Service References\DataManagement\Data2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MassiveTest.DataManagementService\Data3.xsd">
+    <None Include="Service References\DataManagement\Data3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MassiveTest.DataManagementService\DataManagementService.wsdl" />
-    <None Include="Service References\MassiveTest.DataManagementService\MassiveTest.Wcf.Client.MassiveTest.DataManagementService.DataOperationResult.datasource">
+    <None Include="Service References\DataManagement\DataManagementService.wsdl" />
+    <None Include="Service References\DataManagement\MassiveTest.Wcf.Client.DataManagement.DataOperationResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\MassiveTest.DomainSpecificService\Domain.xsd">
+    <None Include="Service References\DomainSpecific\Domain.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MassiveTest.DomainSpecificService\Domain1.xsd">
+    <None Include="Service References\DomainSpecific\Domain1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MassiveTest.DomainSpecificService\Domain2.xsd">
+    <None Include="Service References\DomainSpecific\Domain2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MassiveTest.DomainSpecificService\DomainSpecificService.wsdl" />
+    <None Include="Service References\DomainSpecific\DomainSpecificService.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\MassiveTest.DataManagementService\" />
-    <WCFMetadataStorage Include="Service References\MassiveTest.DomainSpecificService\" />
+    <WCFMetadataStorage Include="Service References\DataManagement\" />
+    <WCFMetadataStorage Include="Service References\DomainSpecific\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MassiveTest.DomainSpecificService\configuration91.svcinfo" />
+    <None Include="Service References\DomainSpecific\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MassiveTest.DomainSpecificService\configuration.svcinfo" />
+    <None Include="Service References\DomainSpecific\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MassiveTest.DomainSpecificService\Reference.svcmap">
+    <None Include="Service References\DomainSpecific\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MassiveTest.DataManagementService\configuration91.svcinfo" />
+    <None Include="Service References\DataManagement\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MassiveTest.DataManagementService\configuration.svcinfo" />
+    <None Include="Service References\DataManagement\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MassiveTest.DataManagementService\Reference.svcmap">
+    <None Include="Service References\DataManagement\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

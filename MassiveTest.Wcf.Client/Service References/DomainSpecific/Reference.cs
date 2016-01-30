@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MassiveTest.Wcf.Client.MassiveTest.DomainSpecificService {
+namespace MassiveTest.Wcf.Client.DomainSpecific {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MassiveTest.DomainSpecificService.IDomainSpecificService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DomainSpecific.IDomainSpecificService")]
     public interface IDomainSpecificService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDomainSpecificService/GetShortestPath", ReplyAction="http://tempuri.org/IDomainSpecificService/GetShortestPathResponse")]
@@ -23,12 +23,12 @@ namespace MassiveTest.Wcf.Client.MassiveTest.DomainSpecificService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDomainSpecificServiceChannel : MassiveTest.Wcf.Client.MassiveTest.DomainSpecificService.IDomainSpecificService, System.ServiceModel.IClientChannel {
+    public interface IDomainSpecificServiceChannel : MassiveTest.Wcf.Client.DomainSpecific.IDomainSpecificService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DomainSpecificServiceClient : System.ServiceModel.ClientBase<MassiveTest.Wcf.Client.MassiveTest.DomainSpecificService.IDomainSpecificService>, MassiveTest.Wcf.Client.MassiveTest.DomainSpecificService.IDomainSpecificService {
+    public partial class DomainSpecificServiceClient : System.ServiceModel.ClientBase<MassiveTest.Wcf.Client.DomainSpecific.IDomainSpecificService>, MassiveTest.Wcf.Client.DomainSpecific.IDomainSpecificService {
         
         public DomainSpecificServiceClient() {
         }

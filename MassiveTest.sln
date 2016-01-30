@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveTest.Wcf.App", "Mass
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveTest.Wcf.Client", "MassiveTest.Wcf.Client\MassiveTest.Wcf.Client.csproj", "{2BAA6633-65A3-4A86-ACA6-97297C69389C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveTest.DataLoader", "MassiveTest.DataLoader\MassiveTest.DataLoader.csproj", "{53A53B77-EA18-41C7-8224-0A70191A594A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{2BAA6633-65A3-4A86-ACA6-97297C69389C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BAA6633-65A3-4A86-ACA6-97297C69389C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BAA6633-65A3-4A86-ACA6-97297C69389C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A53B77-EA18-41C7-8224-0A70191A594A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A53B77-EA18-41C7-8224-0A70191A594A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A53B77-EA18-41C7-8224-0A70191A594A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A53B77-EA18-41C7-8224-0A70191A594A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
