@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MassiveTest.Wcf.Client.DataManagement {
+namespace MassiveTest.Wcf.Client.FEOriented {
     using System.Runtime.Serialization;
     using System;
     
@@ -91,63 +91,49 @@ namespace MassiveTest.Wcf.Client.DataManagement {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DataManagement.IDataManagementService")]
-    public interface IDataManagementService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FEOriented.IClientService")]
+    public interface IClientService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataManagementService/AddNode", ReplyAction="http://tempuri.org/IDataManagementService/AddNodeResponse")]
-        void AddNode(MassiveTest.Wcf.Client.DataManagement.NodeInfo nodeInfo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientService/GetGraph", ReplyAction="http://tempuri.org/IClientService/GetGraphResponse")]
+        MassiveTest.Wcf.Client.FEOriented.NodeInfo[] GetGraph();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataManagementService/AddNode", ReplyAction="http://tempuri.org/IDataManagementService/AddNodeResponse")]
-        System.Threading.Tasks.Task AddNodeAsync(MassiveTest.Wcf.Client.DataManagement.NodeInfo nodeInfo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataManagementService/ClearNodes", ReplyAction="http://tempuri.org/IDataManagementService/ClearNodesResponse")]
-        void ClearNodes();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataManagementService/ClearNodes", ReplyAction="http://tempuri.org/IDataManagementService/ClearNodesResponse")]
-        System.Threading.Tasks.Task ClearNodesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientService/GetGraph", ReplyAction="http://tempuri.org/IClientService/GetGraphResponse")]
+        System.Threading.Tasks.Task<MassiveTest.Wcf.Client.FEOriented.NodeInfo[]> GetGraphAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDataManagementServiceChannel : MassiveTest.Wcf.Client.DataManagement.IDataManagementService, System.ServiceModel.IClientChannel {
+    public interface IClientServiceChannel : MassiveTest.Wcf.Client.FEOriented.IClientService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DataManagementServiceClient : System.ServiceModel.ClientBase<MassiveTest.Wcf.Client.DataManagement.IDataManagementService>, MassiveTest.Wcf.Client.DataManagement.IDataManagementService {
+    public partial class ClientServiceClient : System.ServiceModel.ClientBase<MassiveTest.Wcf.Client.FEOriented.IClientService>, MassiveTest.Wcf.Client.FEOriented.IClientService {
         
-        public DataManagementServiceClient() {
+        public ClientServiceClient() {
         }
         
-        public DataManagementServiceClient(string endpointConfigurationName) : 
+        public ClientServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public DataManagementServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public ClientServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DataManagementServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ClientServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DataManagementServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ClientServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public void AddNode(MassiveTest.Wcf.Client.DataManagement.NodeInfo nodeInfo) {
-            base.Channel.AddNode(nodeInfo);
+        public MassiveTest.Wcf.Client.FEOriented.NodeInfo[] GetGraph() {
+            return base.Channel.GetGraph();
         }
         
-        public System.Threading.Tasks.Task AddNodeAsync(MassiveTest.Wcf.Client.DataManagement.NodeInfo nodeInfo) {
-            return base.Channel.AddNodeAsync(nodeInfo);
-        }
-        
-        public void ClearNodes() {
-            base.Channel.ClearNodes();
-        }
-        
-        public System.Threading.Tasks.Task ClearNodesAsync() {
-            return base.Channel.ClearNodesAsync();
+        public System.Threading.Tasks.Task<MassiveTest.Wcf.Client.FEOriented.NodeInfo[]> GetGraphAsync() {
+            return base.Channel.GetGraphAsync();
         }
     }
 }

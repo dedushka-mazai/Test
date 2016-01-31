@@ -4,8 +4,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/Graphs/Data.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost/Graphs/Data.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost/Graphs/Data.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost/Graphs/Data.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MassiveTest.Interface" />
+      <xsd:import schemaLocation="http://localhost/Graphs/Data.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MassiveTest.Wcf.Services" />
+      <xsd:import schemaLocation="http://localhost/Graphs/Data.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IDataManagementService_AddNode_InputMessage">
@@ -14,20 +14,20 @@
   <wsdl:message name="IDataManagementService_AddNode_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddNodeResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataManagementService_Clear_InputMessage">
-    <wsdl:part name="parameters" element="tns:Clear" />
+  <wsdl:message name="IDataManagementService_ClearNodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearNodes" />
   </wsdl:message>
-  <wsdl:message name="IDataManagementService_Clear_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ClearResponse" />
+  <wsdl:message name="IDataManagementService_ClearNodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearNodesResponse" />
   </wsdl:message>
   <wsdl:portType name="IDataManagementService">
     <wsdl:operation name="AddNode">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataManagementService/AddNode" message="tns:IDataManagementService_AddNode_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataManagementService/AddNodeResponse" message="tns:IDataManagementService_AddNode_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Clear">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagementService/Clear" message="tns:IDataManagementService_Clear_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagementService/ClearResponse" message="tns:IDataManagementService_Clear_OutputMessage" />
+    <wsdl:operation name="ClearNodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagementService/ClearNodes" message="tns:IDataManagementService_ClearNodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagementService/ClearNodesResponse" message="tns:IDataManagementService_ClearNodes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDataManagementService" type="tns:IDataManagementService">
@@ -41,8 +41,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Clear">
-      <soap:operation soapAction="http://tempuri.org/IDataManagementService/Clear" style="document" />
+    <wsdl:operation name="ClearNodes">
+      <soap:operation soapAction="http://tempuri.org/IDataManagementService/ClearNodes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -1,0 +1,29 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:graphx="http://schemas.panthernet.ru/graphx/" xmlns:Model="clr-namespace:MassiveTest.GraphVisualizer.Model" x:Class="MassiveTest.GraphVisualizer.MainWindow"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" MinWidth="73"/>
+        </Grid.ColumnDefinitions>
+
+        <graphx:ZoomControl x:Name="zoomctrl">
+            <Model:GraphAreaExample x:Name="gvArea"/>
+        </graphx:ZoomControl>
+
+        <DockPanel LastChildFill="False" Grid.Column="1" Margin="3" Grid.RowSpan="1">
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Top" HorizontalAlignment="Center">
+                <Button Height="50" Width="50" Margin="3" Name="gg_but_randomgraph"  DockPanel.Dock="Top" UseLayoutRounding="True" Click="gg_but_randomgraph_Click">
+                    <Label Content="Load"/>
+                </Button>
+                <Button Height="50" Margin="3" Name="gg_but_relayout" DockPanel.Dock="Top" UseLayoutRounding="True">
+                    <Label Content="Calc"/>
+                </Button>
+            </StackPanel>
+        </DockPanel>
+
+
+    </Grid>
+</Window>

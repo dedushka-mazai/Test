@@ -101,7 +101,7 @@ namespace MassiveTest.DataLoader
                 try
                 {
                     Logger.Write(String.Format("  {0}...  ", Path.GetFileName(node.SourceFile)), true);
-                    proxy.AddNode(node.Id, node.Label, node.AdjacentNodes);
+                    proxy.AddNode(new MassiveTest.Wcf.Client.DataManagement.NodeInfo() { Id = node.Id, Label = node.Label, AdjacentNodes = node.AdjacentNodes });
                     Logger.WriteLineSuccess("Ok", true, true, true);
                 }
                 catch (Exception e)
@@ -121,7 +121,7 @@ namespace MassiveTest.DataLoader
         {
             try
             {
-                proxy.Clear();
+                proxy.ClearNodes();
             }
             catch (Exception e)
             {

@@ -64,6 +64,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client.svc" />
     <Content Include="Data.svc" />
     <Content Include="Domain.svc" />
     <Content Include="Web.config" />

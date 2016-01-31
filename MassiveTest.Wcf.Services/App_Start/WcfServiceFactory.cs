@@ -10,10 +10,12 @@ using Unity.Wcf;
 using MassiveTest.Interface;
 using MassiveTest.DataProvider;
 
-namespace MassiveTest.Wcf.Services {
-    public class WcfServiceFactory : UnityServiceHostFactory {
-
-        protected override void ConfigureContainer(IUnityContainer container) {
+namespace MassiveTest.Wcf.Services 
+{
+    public class WcfServiceFactory : UnityServiceHostFactory 
+    {
+        protected override void ConfigureContainer(IUnityContainer container) 
+        {
             //container.LoadConfiguration();
             container.RegisterType<IGraph, MassiveTest.Graphs.Graph>();
             container.RegisterType<IDataProvider, DbDataProvider >();
@@ -22,6 +24,7 @@ namespace MassiveTest.Wcf.Services {
 
             container.RegisterType<IDomainSpecificService, DomainSpecificService>();
             container.RegisterType<IDataManagementService, DataManagementService>();
+            container.RegisterType<IClientService, ClientService>();
 
             //UnityConfig.RegisterTypes(container);
         }

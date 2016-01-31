@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost/Graphs/Data.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost/Graphs/Data.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MassiveTest.Interface" />
+  <xs:import schemaLocation="http://localhost/Graphs/Data.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MassiveTest.Wcf.Services" />
   <xs:element name="AddNode">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string" />
-        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="adjacentIds" nillable="true" type="q1:ArrayOfstring" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MassiveTest.Wcf.Services" minOccurs="0" name="nodeInfo" nillable="true" type="q1:NodeInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddNodeResponse">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MassiveTest.Interface" minOccurs="0" name="AddNodeResult" type="q2:DataOperationResult" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="Clear">
+  <xs:element name="ClearNodes">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="ClearResponse">
+  <xs:element name="ClearNodesResponse">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MassiveTest.Interface" minOccurs="0" name="ClearResult" type="q3:DataOperationResult" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

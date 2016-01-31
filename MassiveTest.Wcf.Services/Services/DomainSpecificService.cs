@@ -8,8 +8,27 @@ using MassiveTest.Interface;
 
 namespace MassiveTest.Wcf.Services
 {
+    #region Service Contract
     /// <summary>
-    /// Domain-specific service implementation
+    /// Describes domain-specific operations
+    /// </summary>
+    [ServiceContract]
+    public interface IDomainSpecificService
+    {
+        /// <summary>
+        /// Gets shortest path between two nodes
+        /// </summary>
+        /// <param name="startId">Start node Id</param>
+        /// <param name="endId">End node Id</param>
+        /// <returns>Path including start and end nodes if exists, or empty array otherwise</returns>
+        [OperationContract]
+        string[] GetShortestPath(string startId, string endId);
+    }
+    #endregion
+
+    #region Service Implementation
+    /// <summary>
+    /// Domain-specific service
     /// </summary>
     public class DomainSpecificService : IDomainSpecificService
     {
@@ -17,10 +36,10 @@ namespace MassiveTest.Wcf.Services
         private IDataProvider provider;
 
         /// <summary>
-        /// Initializes a new instance of domain specific service with specified DataProvider and Graph parameters
+        /// Initializes a new instance of domain specific service
         /// </summary>
-        /// <param name="provider">Data Provider instance</param>
-        /// <param name="graph">Graph instance</param>
+        /// <param name="provider">Service data provider</param>
+        /// <param name="graph">Entity, that implements graph logic</param>
         public DomainSpecificService(IDataProvider provider, IGraph graph)
         {
             this.graph = graph;
@@ -28,15 +47,19 @@ namespace MassiveTest.Wcf.Services
         }
 
         /// <summary>
-        /// Calculates shortest path between two specified nodes
+        /// Calculates shortest path between two specified graph nodes
         /// </summary>
         /// <param name="startId">Start node Id</param>
         /// <param name="endId">End node Id</param>
-        /// <returns>Shortest path if exists, or empty array otherwise</returns>
+        /// <returns>Shortest path (including start and end nodes) if exists, or empty array otherwise</returns>
         public string[] GetShortestPath(string startId, string endId)
         {
+            // fill graph instance with data
             provider.BuildGraph(graph);
+            
+            // search for the shortest path between specified nodes
             return graph.FindShortestPath(startId, endId);
         }
     }
+    #endregion
 }

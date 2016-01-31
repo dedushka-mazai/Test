@@ -52,6 +52,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\FEOriented\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -71,9 +76,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DataManagement\DataManagementService.wsdl" />
-    <None Include="Service References\DataManagement\MassiveTest.Wcf.Client.DataManagement.DataOperationResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\DomainSpecific\Domain.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -84,10 +86,27 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DomainSpecific\DomainSpecificService.wsdl" />
+    <None Include="Service References\FEOriented\Client.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FEOriented\Client1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FEOriented\Client2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FEOriented\Client3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FEOriented\ClientService.wsdl" />
+    <None Include="Service References\FEOriented\MassiveTest.Wcf.Client.FEOriented.NodeInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\DataManagement\" />
     <WCFMetadataStorage Include="Service References\DomainSpecific\" />
+    <WCFMetadataStorage Include="Service References\FEOriented\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\DomainSpecific\configuration91.svcinfo" />
@@ -109,6 +128,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\DataManagement\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FEOriented\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FEOriented\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FEOriented\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
