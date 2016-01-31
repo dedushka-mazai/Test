@@ -1,0 +1,2 @@
+1. Implement logging for the WCF service
+2. Move all SQL stuff from the DbDataProvider to the IDbEngine level
