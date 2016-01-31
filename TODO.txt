@@ -1,2 +1,3 @@
 1. Implement logging for the WCF service
 2. Move all SQL stuff from the DbDataProvider to the IDbEngine level
+3. GraphViewer: draw edges belonging to the found path with green color 
