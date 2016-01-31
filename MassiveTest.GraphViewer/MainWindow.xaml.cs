@@ -24,18 +24,101 @@ namespace MassiveTest.GraphVisualizer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private TestGraph graph = null;
+
         public MainWindow()
         {
             InitializeComponent();
 
             ZoomControl.SetViewFinderVisibility(zoomctrl, Visibility.Hidden);
-
         }
 
-        private GraphExample GraphExample_Setup()
+        private void CalcShortestPath()
+        {
+            if (graph != null)
+            {
+                try
+                {
+                    if (graph.StartNode == null)
+                        throw new Exception("Start node is not specified");
+                    if (graph.EndNode == null)
+                        throw new Exception("End node is not specified");
+
+                    var proxy = new MassiveTest.Wcf.Client.DomainSpecific.DomainSpecificServiceClient();
+                    try
+                    {
+                        var path = proxy.GetShortestPath(graph.StartNode.Id, graph.EndNode.Id);
+                        if (path.Length > 0)
+                        {
+                            foreach (var id in path)
+                            {
+                                var vertex = graph.GetVertexById(id);
+                                if (vertex == null)
+                                    throw new Exception("Unknown node in path detected! Graph is invalid, reload it please.");
+                                vertex.VState = DataVertexState.IsInPath;
+                            }
+                        }
+                        else
+                        {
+                            graph.StartNode.VState = DataVertexState.NotConnected;
+                            graph.EndNode.VState = DataVertexState.NotConnected;
+                        }
+                        graph.isPathMarked = true;
+                    }
+                    finally
+                    {
+                        proxy.Close();
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void LoadGraphFromGraphService()
+        {
+            var proxy = new MassiveTest.Wcf.Client.FEOriented.ClientServiceClient();
+            try
+            {
+                try
+                {
+                    var nodes = proxy.GetGraph();
+                    graph = new TestGraph();
+                    var vertices = new Dictionary<string, DataVertex>();
+                    foreach (var node in nodes)
+                    {
+                        var v = new DataVertex() { Id = node.Id, Text = node.Label, Owner = graph };
+                        graph.AddVertex(v);
+                        vertices.Add(v.Id, v);
+                    }
+
+                    foreach (var node in nodes)
+                    {
+                        foreach (var adjacentId in node.AdjacentNodes)
+                        {
+                            DataVertex adjacentVertex = vertices.ContainsKey(adjacentId) ? vertices[adjacentId] : null;
+                            if (adjacentVertex != null)
+                                graph.AddEdge(new DataEdge(vertices[node.Id], adjacentVertex));
+                        }
+                    }
+                }
+                finally
+                {
+                    proxy.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private TestGraph GraphExample_Setup()
         {
             //Lets make new data graph instance
-            var dataGraph = new GraphExample();
+            var dataGraph = new TestGraph();
             //Now we need to create edges and vertices to fill data graph
             //This edges and vertices will represent graph structure and connections
             //Lets make some vertices
@@ -65,7 +148,9 @@ namespace MassiveTest.GraphVisualizer
 
         private void gg_but_randomgraph_Click(object sender, RoutedEventArgs e)
         {
-            var logicCore = new GXLogicCoreExample() { Graph = GraphExample_Setup() };
+            LoadGraphFromGraphService();
+
+            var logicCore = new TestGXLogicCore() { Graph = graph };
             //This property sets layout algorithm that will be used to calculate vertices positions
             //Different algorithms uses different values and some of them uses edge Weight property.
             logicCore.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.KK;
@@ -106,8 +191,28 @@ namespace MassiveTest.GraphVisualizer
             //each edge individually using property, for ex: Area.EdgesList[0].ShowLabel = true;
 //            Area.ShowAllEdgesLabels(true);
 
+            gvArea.SetVerticesDrag(true, true);
+            gvArea.SetVerticesHighlight(true, GraphControlType.Vertex);
+
             zoomctrl.ZoomToFill(); 
 
+        }
+
+        private void gvArea_VertexSelected(object sender, GraphX.Controls.Models.VertexSelectedEventArgs args)
+        {
+            DataVertex v = (DataVertex)args.VertexControl.Vertex;
+            v.Selected = !v.Selected;
+        }
+
+        private void btnCalcShortestPath_Click(object sender, RoutedEventArgs e)
+        {
+            CalcShortestPath();
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            if (graph != null)
+                graph.ResetVertexStates();
         }
     }
 }

@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="http://schemas.panthernet.ru/graphx/">
+    <!-- VERTEX CONTROL -->
+    <Style TargetType="{x:Type controls:VertexControl}">
+        <Setter Property="Background" Value="LightGray"/>
+<!--        <Setter Property="VertexShape" Value="Circle"/>-->
+        <Setter Property="ShowLabel" Value="False"/>
+
+        <!-- VERTEX DRAGGING CONTROL -->
+        <Setter Property="controls:DragBehaviour.IsDragEnabled"
+                Value="True" />
+        <Setter Property="controls:DragBehaviour.UpdateEdgesOnMove"
+                Value="True" />
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding VState}" Value="Selected">
+                <Setter Property="Background" Value="LightGreen"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding VState}" Value="Undefined">
+                <Setter Property="Background" Value="LightGray"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding VState}" Value="IsInPath">
+                <Setter Property="Background" Value="Green"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding VState}" Value="NotConnected">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+        </Style.Triggers>
+
+    </Style>
+
+</ResourceDictionary>

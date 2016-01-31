@@ -7,14 +7,23 @@ using MassiveTest.Interface;
 
 namespace MassiveTest.DataProvider
 {
+    // TODO: All the SQL used should be moved to DBEngine layer.
+    // Some IDbEngine.ExecProc method should be used instead. DBProvider should operate SP name and parameters only.
+    //   example:  db.ExecProc('some_sp_name', spParams);
+
     /// <summary>
-    /// Data Provider, which gets\stores graph data from\into abstract database with known structure
+    /// Data Provider, which gets\stores graph data from\into abstract database with known interface (set of stored procs)
     /// </summary>
     public class DbDataProvider : IDataProvider
     {
         private IDbEngine db;
         private IDbConnectionParams connectionParams;
 
+        /// <summary>
+        /// Initializes an instance of DbDataProvider class
+        /// </summary>
+        /// <param name="db">Databse engine instance</param>
+        /// <param name="connectionParams">Database connection params</param>
         public DbDataProvider(IDbEngine db, IDbConnectionParams connectionParams)
         {
             this.db = db;

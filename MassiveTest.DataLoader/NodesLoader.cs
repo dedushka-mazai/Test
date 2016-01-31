@@ -150,14 +150,19 @@ namespace MassiveTest.DataLoader
             // connect to WCF graph data-management service
             ConnectToDataService();
 
-            // delete all existing nodes at the service
-            ClearNodes();
+            try
+            {
+                // delete all existing nodes at the service
+                ClearNodes();
 
-            // upload previously loaded from disk nodes to the service
-            UploadNodes();
-
-            // disconnect from the service
-            DisconnectFromDataService();
+                // upload previously loaded from disk nodes to the service
+                UploadNodes();
+            }
+            finally
+            {
+                // disconnect from the service
+                DisconnectFromDataService();
+            }
         }
         #endregion
     }
