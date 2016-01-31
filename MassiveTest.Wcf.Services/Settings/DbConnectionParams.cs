@@ -3,34 +3,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using MassiveTest.Interface;
+using MassiveTest.Wcf.Services.Tools;
+using System.Reflection;
+using System.IO;
 
 namespace MassiveTest.Wcf.Services.Settings
 {
     public class DbConnectionParams : IDbConnectionParams
     {
-        public string Host
-        {
-            get { return DbSettings.Default.DbHost; }
-            set { }
-        }
+        public string Host { get; set; }
 
-        public string User
-        {
-            get { return DbSettings.Default.DbUser; }
-            set { }
-        }
+        public string User { get; set; }
 
-        public string Pass
-        {
-            get { return DbSettings.Default.DbPass; }
-            set { }
-        }
+        public string Pass { get; set; }
 
-        public string DbName
+        public string DbName { get; set; }
+
+        public DbConnectionParams()
         {
-            get { return DbSettings.Default.DbName; }
-            set { }
+            var cfg = DbConfig.GetInstance();
+            Host = cfg.Host;
+            User = cfg.User;
+            Pass = cfg.Pass;
+            DbName = cfg.DbName;
         }
     }
+
+    [XmlRoot("params")]
+    [Serializable]
+    public class DbConfig
+    {
+        [XmlElement("host")]
+        public string Host { get; set; }
+
+        [XmlElement("user")]
+        public string User { get; set; }
+
+        [XmlElement("pass")]
+        public string Pass { get; set; }
+
+        [XmlElement("dbname")]
+        public string DbName { get; set; }
+
+        public DbConfig()
+        {
+            Host = "";
+            User = "";
+            Pass = "";
+            DbName = "";
+        }
+
+        public static DbConfig GetInstance()
+        {
+            DbConfig instance = null;
+            string fname = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, "db.config");
+            if (!File.Exists(fname))
+            {
+                instance = new DbConfig();
+                XmlStorageProvider.SaveToFile<DbConfig>(fname, instance);
+            }
+            else
+                instance = XmlStorageProvider.LoadFromFile<DbConfig>(fname);
+            return instance;
+        }
+    }
+
 }

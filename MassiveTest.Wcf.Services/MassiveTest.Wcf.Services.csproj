@@ -58,6 +58,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Unity.Wcf, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -73,19 +74,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DomainSpecificService.cs" />
     <Compile Include="Settings\DbConnectionParams.cs" />
-    <Compile Include="Settings\DbSettings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>DbSettings.settings</DependentUpon>
-    </Compile>
+    <Compile Include="Tools\XmlStorageProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Settings\DbSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>DbSettings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MassiveTest.DataProvider\MassiveTest.DataProvider.csproj">
