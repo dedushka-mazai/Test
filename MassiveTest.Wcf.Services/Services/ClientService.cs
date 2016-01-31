@@ -31,14 +31,16 @@ namespace MassiveTest.Wcf.Services
     public class ClientService : IClientService
     {
         private IDataProvider provider;
+        private IGraph graph;
 
         /// <summary>
         /// Initializes a new instance of the client service
         /// </summary>
         /// <param name="provider">Service data provider</param>
-        public ClientService(IDataProvider provider)
+        public ClientService(IDataProvider provider, IGraph graph)
         {
             this.provider = provider;
+            this.graph = graph;
         }
 
         /// <summary>
@@ -47,7 +49,8 @@ namespace MassiveTest.Wcf.Services
         /// <returns>Array of graph nodes</returns>
         public NodeInfo[] GetGraph()
         {
-            return null;
+            provider.BuildGraph(graph);
+            return graph.Nodes.Select(n => new NodeInfo() { Id = n.Id, Label = n.Label, AdjacentNodes = n.AdjacentNodes }).ToArray();
         }
     }
     #endregion

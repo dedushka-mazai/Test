@@ -6,9 +6,9 @@
 
 DELIMITER $$
 
-DROP PROCEDURE IF EXISTS clear$$
-
 /* -------------------------------------------------------------------------- */ 
+
+DROP PROCEDURE IF EXISTS clear$$
 
 CREATE PROCEDURE clear()
 BEGIN
@@ -50,6 +50,15 @@ BEGIN
       INSERT INTO adjacent_nodes (id, adj_id) VALUES (p_id, @s);
     END IF;
   UNTIL v_pos = -1 END REPEAT; 
+END$$
+
+/* -------------------------------------------------------------------------- */ 
+
+DROP PROCEDURE IF EXISTS get_graph$$
+
+CREATE PROCEDURE get_graph()
+BEGIN
+  SELECT n.id, n.label, an.adj_id FROM nodes n LEFT OUTER JOIN adjacent_nodes an ON n.id = an.id ORDER BY 1;
 END$$
 
 /* -------------------------------------------------------------------------- */ 

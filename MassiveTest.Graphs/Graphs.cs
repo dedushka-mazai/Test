@@ -10,7 +10,7 @@ namespace MassiveTest.Graphs
     /// <summary>
     /// Class, implements unidirectional graph
     /// </summary>
-    public class Graph : IGraph
+    public class Graph: IGraph
     {
         #region Private
         
@@ -123,6 +123,14 @@ namespace MassiveTest.Graphs
         }
 
         /// <summary>
+        /// Returns array of graph nodes
+        /// </summary>
+        public IGraphNode[] Nodes
+        {
+            get { return nodes.Values.ToArray(); }
+        }
+
+        /// <summary>
         /// Finds shortest path between two specified nodes
         /// </summary>
         /// <param name="startId">Id of start node</param>
@@ -184,15 +192,33 @@ namespace MassiveTest.Graphs
     }
 
     /// <summary>
-    /// Node class for internal usage
+    /// Represents graph node
     /// </summary>
-    internal class Node
+    public class Node: IGraphNode
     {
         internal int waveMark = -1;
         internal Dictionary<string, Node> backtraceNodes = new Dictionary<string, Node>();
         internal Dictionary<string, Node> adjacentNodes = new Dictionary<string, Node>();
 
-        internal string Id { get; set; }
-        internal string Label { get; set; }
+        #region IGraphNode Members
+
+        /// <summary>
+        /// Unique string identifying the node
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Human readable text describing the node
+        /// </summary>
+        public string Label { get; set; }
+
+        /// <summary>
+        /// IDs of nodes adjacent to current
+        /// </summary>
+        public string[] AdjacentNodes 
+        {
+            get { return adjacentNodes.Keys.ToArray(); }
+        }
+        #endregion
     }
 }

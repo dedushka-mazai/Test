@@ -32,7 +32,7 @@ namespace MassiveTest.DataProvider
             db.Connect(connectionParams);
             try
             {
-                var reader = db.Execute("select n.id, n.label, an.adj_id from nodes n left outer join adjacent_nodes an on n.id = an.id order by 1");
+                var reader = db.Execute("CALL get_graph();");
                 try
                 {
                     string id = null;

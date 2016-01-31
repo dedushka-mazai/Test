@@ -26,6 +26,11 @@ namespace MassiveTest.Interface
         void Clear();
 
         /// <summary>
+        /// Gets array of graph nodes
+        /// </summary>
+        IGraphNode[] Nodes { get; }
+
+        /// <summary>
         /// Searches for the shortest path between two graph nodes
         /// </summary>
         /// <param name="startId">Start node Id</param>
