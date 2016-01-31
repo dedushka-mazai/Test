@@ -23,7 +23,7 @@
 
         <DockPanel LastChildFill="False" Grid.Column="1" Margin="3" Grid.RowSpan="1">
             <StackPanel Orientation="Vertical" DockPanel.Dock="Top" HorizontalAlignment="Center">
-                <Button Height="50" Width="50" Margin="3" Name="gg_but_randomgraph"  DockPanel.Dock="Top" UseLayoutRounding="True" Click="gg_but_randomgraph_Click">
+                <Button Height="50" Width="50" Margin="3" x:Name="btnLoad"  DockPanel.Dock="Top" UseLayoutRounding="True" Click="btnLoad_Click">
                     <Label Content="Load"/>
                 </Button>
                 <Button Height="50" Margin="3" x:Name="btnCalcShortestPath" DockPanel.Dock="Top" UseLayoutRounding="True" Click="btnCalcShortestPath_Click">
